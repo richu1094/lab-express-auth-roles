@@ -1,0 +1,29 @@
+<h2>Edit</h2>
+<hr>
+<form action="/student/{{id}}/edit" method="POST">
+    <div class="mb-3">
+        <label for="username" class="form-label">Username:</label>
+        <input type="text" class="form-control" id="username" value="{{username}}" name="username">
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">E-mail:</label>
+        <input type="text" class="form-control" id="email" value="{{email}}" name="email">
+    </div>
+    <div class="mb-3">
+        <label for="profileImg" class="form-label">Profile Image:</label>
+        <input type="url" class="form-control" id="profileImg" value="{{profileImg}}" name="profileImg">
+    </div>
+    <div class="mb-3">
+        <label for="description" class="form-label">Description:</label>
+        <textarea class="form-control" id="description" rows="3" value="{{description}}"
+            name="description"></textarea>
+    </div>
+    <div class="d-grid gap-2">
+        <button type="submit" class="btn btn-dark block">Submit edit</button>
+    </div>
+    {{#if errorMessage}}
+    <div id="errorMessage">
+        <p>{{errorMessage}}</p>
+    </div>
+    {{/if}}
+</form>

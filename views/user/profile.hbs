@@ -1,0 +1,36 @@
+<h2>Profile</h2>
+<hr>
+
+<p>Username: {{student.username}}</p>
+<p>E-mail: {{student.email}}</p>
+
+{{#if student.description}}
+<p>Description: {{student.description}}</p>
+{{/if}}
+
+{{#if student.profileImg}}
+<p>Avatar:</p>
+<img src="{{student.profileImg}}" alt="profile-img">
+{{/if}}
+
+<hr>
+{{#if isOWNER}}
+<a class="btn btn-warning" href="/student/{{student.id}}/edit">Edit</a>
+<hr>
+{{/if}}
+
+{{#if isPM}}
+<a class="btn btn-warning" href="/student/{{student.id}}/edit">Edit</a>
+<form action="/student/{{student.id}}/delete" method="post" class="mt-3">
+    <button type="submit" class="btn btn-danger">Delete</button>
+</form>
+<hr>
+<form action="/student/{{student.id}}/promote" method="post" class="mt-3">
+    <button type="submit" class="btn btn-success" name="role" value="DEV">Promote to DEV</button>
+</form>
+<form action="/student/{{student.id}}/promote" method="post" class="mt-3">
+    <button type="submit" class="btn btn-success" name="role" value="TA">Promote to TA</button>
+</form>
+<hr>
+{{/if}}
+<a class="btn btn-dark" href="/student">Back to list</a>
